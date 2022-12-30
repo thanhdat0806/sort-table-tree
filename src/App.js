@@ -7,7 +7,7 @@ import "react-sortable-tree/style.css";
 const seed = [
   {
     id: "123",
-    title: "Company",
+    title: "JAVASCRIPT",
     subtitle: "zzz",
     isDirectory: true,
     expanded: true,
@@ -164,6 +164,19 @@ function App() {
     );
   }
 
+  const alertNodeInfo = ({ node, path, treeIndex }) => {
+    const objectString = Object.keys(node)
+      .map((k) => (k === "children" ? "children: Array" : `${k}: '${node[k]}'`))
+      .join(",\n   ");
+
+    global.alert(
+      "Info passed to the icon and button generators:\n\n" +
+        `node: {\n   ${objectString}\n},\n` +
+        `path: [${path.join(", ")}],\n` +
+        `treeIndex: ${treeIndex}`
+    );
+  };
+
   function expandAll() {
     expand(true);
   }
@@ -191,30 +204,31 @@ function App() {
           generateNodeProps={(rowInfo) => ({
           buttons: [
             <div>
+              
               <button
                   label="Add Sibling"
                   onClick={(event) => addNodeSibling(rowInfo)}
-                >
-                  Add Sibling
+                ><i class="fa-solid fa-plus"></i> Sibling
                 </button>
                 <button
                   label="Add Child"
                   onClick={(event) => addNodeChild(rowInfo)}
                 >
-                  Add Child
+                  <i class="fa-solid fa-plus"></i> Child
+
                 </button>
               <button label="Update" onClick={(event) => updateNode(rowInfo)}>
-                Update
+              <i class="fa-solid fa-pen-to-square"></i>
               </button>
                <button label="Delete" onClick={(event) => removeNode(rowInfo)}>
-                Remove
+               <i class="fa-solid fa-trash-can"></i>
               </button>
-             {/* <button
+             <button
                 label="Alert"
                 onClick={(event) => alertNodeInfo(rowInfo)}
               >
-                Info
-              </button> */}
+               <i class="fa-sharp fa-solid fa-info"></i>
+              </button>
             </div>
           ],
           style: {
