@@ -6,25 +6,37 @@ import "react-sortable-tree/style.css";
 
 const seed = [
   {
-    id: "123",
-    title: "JAVASCRIPT",
+    id: "1",
+    title: "WEB DEVELOPMENT",
     subtitle: "zzz",
     isDirectory: true,
     expanded: true,
     children: [
-      { id: "456", title: "Human Resource", subtitle: "zzz" },
+      { id: "11", title: "FRONTEND", subtitle: "zzz", 
+      expanded: true,
+      children: [
+        {
+          id: "111",
+          title: "HTML",
+          subtitle: "zzz"
+        },
+        { id: "112", title: "CSS", subtitle: "zzz" },
+        { id: "113", title: "JavaScript", subtitle: "zzz" },
+        { id: "114", title: "ReactJs", subtitle: "zzz" }]
+      },
       {
-        id: "789",
-        title: "Bussiness",
+        id: "12",
+        title: "BACKEND",
         subtitle: "zzz",
         expanded: true,
         children: [
           {
-            id: "234",
-            title: "Store A",
+            id: "121",
+            title: "PHP",
             subtitle: "zzz"
           },
-          { id: "567", title: "Store B", subtitle: "zzz" }
+          { id: "122", title: "NODEJS", subtitle: "zzz" },
+          { id: "123", title: "ASP.NET CORE", subtitle: "zzz" }
         ]
       }
     ]
